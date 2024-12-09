@@ -26,6 +26,7 @@
                 for (int i = 0; i < factors.Length; i++)
                 {
                     AddOrMinus(ref factors[i] , ref factors[i+1]);
+
                 }
             }
         }
