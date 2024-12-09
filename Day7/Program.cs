@@ -23,7 +23,8 @@
             {
                 string[] bothNumbers = line.Split(':');
                 string[] factors = bothNumbers[1].Split(' ', StringSplitOptions.RemoveEmptyEntries);
-                for (int i = 0; i < factors.Length; i++)
+                int Operators = 2 ^(factors.Length)-1;//how many operators needed
+                for (int i = 0; i < Operators; i++)
                 {
                     AddOrMinus(ref factors[i] , ref factors[i+1]);
 
