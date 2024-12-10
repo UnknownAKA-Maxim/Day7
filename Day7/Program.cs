@@ -1,34 +1,32 @@
-﻿namespace Day7
+namespace Day7
 {
     
     internal class Program
     {
-        static void AddOrMinus(ref string stringNumber1,ref string stringNumber2)
+        static bool AddOrTimes(int[] factors,)//add two numbers together or times two numbers and keps track of whats been added and whats been timesd
         {
-            int number1, number2;
-            number1 = int.Parse(stringNumber1);
-            number2 = int.Parse(stringNumber2);
-            if (number1)
-            {
 
-            }
-
+            
         }
         static void Main()
         {
             string[] input = File.ReadAllLines("input.txt");//dotnetperls.com/category
-            int total = 0;
-
+            int answer = 0;//how many are true
+            int[] factors;
             foreach (string line in input)
             {
+                int total = 0;
                 string[] bothNumbers = line.Split(':');
-                string[] factors = bothNumbers[1].Split(' ', StringSplitOptions.RemoveEmptyEntries);
-                int Operators = 2 ^(factors.Length)-1;//how many operators needed
-                for (int i = 0; i < Operators; i++)
+                string[] factorString = bothNumbers[1].Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                factors =(from value in factorString
+                                select int.Parse(value)).ToArray();
+                int.Parse(bothNumbers[0]);
+                if (AddOrTimes(factors,))
                 {
-                    AddOrMinus(ref factors[i] , ref factors[i+1]);
-
+                    answer++;
                 }
+                
+               
             }
         }
     }
