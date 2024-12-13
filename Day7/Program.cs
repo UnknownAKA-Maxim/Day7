@@ -10,7 +10,7 @@ namespace Day7
             {
                 return sum == total;
             }
-            if (sum >= total && index != factors.Length)
+            if (sum > total && index != factors.Length)
             {
                 return false;
             }
