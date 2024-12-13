@@ -3,6 +3,29 @@ namespace Day7
     
     internal class Program
     {
+        static bool Part2(ulong[] factors, ulong total, int index, ulong sum, string[] factorString)
+        {
+            ulong integersConcatinated;
+            ulong[] newArray=new ulong[factors.Length-1];
+            if (index<factors.Length-1) 
+            {
+                for (int i = 0; i < newArray.Length; i++)
+                {
+                    if (index == i)
+                    {
+                        integersConcatinated = ulong.Parse(factorString[index] + "" + factorString[index + 1]);
+                        newArray[index] = integersConcatinated;
+                    }
+                }
+            }
+            if ()
+            {
+
+            }
+            return Part2(newArray, total, index, sum, factorString);
+
+            
+        }
         static bool AddOrTimes(ulong[] factors, ulong total, int index, ulong sum)
         {
             //add two numbers together or times two numbers and keeps track of whats been added and whats been timesd
@@ -36,6 +59,13 @@ namespace Day7
                 {
                     answer += total;
                 }
+               else
+               {
+                   if (Part2(factors, total, 1, factors[0], factorString))
+                   {
+                       answer += total;
+                   }
+               }
             }
             Console.WriteLine(answer);
             //32033638746 too low
