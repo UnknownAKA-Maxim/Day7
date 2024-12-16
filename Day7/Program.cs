@@ -9,7 +9,7 @@ namespace Day7_dotnetframework_
 {
     internal class Program
     {
-        static bool Part2(ulong[] factors, ulong total, int index, ulong sum, string[] factorString)
+        static bool Part2(ulong[] factors, ulong total, int index, ulong sum, string[] factorString,ref int concatinatedIndex)
         {
             
             ulong integersConcatinated;
@@ -31,8 +31,14 @@ namespace Day7_dotnetframework_
                     }
                 }
             }
-            return AddOrTimes(newArray, total, 0, 0) ;
-            
+            if (index<factors.Length) 
+            {
+                return AddOrTimes(newArray, total, 0, 0);
+            }
+            else
+            {
+
+            }
         }
         static bool AddOrTimes(ulong[] factors, ulong total, int index, ulong sum)
         {
@@ -70,7 +76,8 @@ namespace Day7_dotnetframework_
                 }
                 else
                 {
-                    if (Part2(factors, total, 1, factors[0], factorString))
+                    int concatinatedIndex = 0;
+                    if (Part2(factors, total, 1, factors[0], factorString,ref concatinatedIndex))
                     {
                         answer += total;
                     }
